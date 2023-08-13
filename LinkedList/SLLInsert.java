@@ -64,6 +64,20 @@ public class SLL2 {
 		}
 		System.out.println("\nNumber of elements : "+count);
 	}
+	//Delete Element At Any Position
+	public void deleteElementAtAnyPos(int pos) {
+		Node temp = head;
+		if(pos == 0) {
+			Node deleteNode = head;
+			head = deleteNode.next;
+			return;
+		}
+		for(int i=0; i<pos-1; i++) {
+			temp = temp.next;
+		}
+		Node deleteNode = temp.next;
+		temp.next = deleteNode.next;
+	}
 	public static void main(String[] args) {
 		SLL2 s1 = new SLL2();	
 		s1.insertAtLast(10);
@@ -74,6 +88,9 @@ public class SLL2 {
 		s1.insertAtLast(60);
 		s1.insertAtBegining(56);
 		s1.insertAtAnyPos(68, 6);
+		s1.display();
+		s1.countElement();
+		s1.deleteElementAtAnyPos(3);
 		s1.display();
 		s1.countElement();
 	}
