@@ -1,5 +1,4 @@
 //Reverse a Singly Linked List
-
 public class ReverseSLL {
 	static Node head;
 	class Node{
@@ -57,5 +56,4 @@ public class ReverseSLL {
 		head = s1.reverse(head);
 		s1.display(head);
 	}
-
 }
