@@ -1,5 +1,4 @@
 //Doubly Linked List
-
 public class DoublyLL {
 	Node head;
 	class Node{
