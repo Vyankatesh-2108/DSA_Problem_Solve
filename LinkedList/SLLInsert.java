@@ -1,6 +1,4 @@
-//Singly Linked List
-
-public class SLList {
+public class SLL2 {
 	Node head;
 	class Node{
 		int data;
@@ -9,67 +7,74 @@ public class SLList {
 			this.data=data;
 			this.next=null;
 		}
+	}	
+	//Insert Element at tail
+	public void insertAtLast(int data) {
+		Node newNode = new Node(data);
+		if(head == null) {
+			head=newNode;
+			return;
+		}	
+		Node temp = head;
+		while(temp.next != null) {
+			temp = temp.next;
+		}
+		temp.next = newNode;
 	}
-	
-	//Insert At Beginning
-	public void addFirst(int data) {
+	//Insert Element At Beginning
+	public void insertAtBegining(int data) {
 		Node newNode = new Node(data);
 		if(head == null) {
 			head = newNode;
 			return;
-		}
-		
-		newNode.next=head;
-		head=newNode;
-		
+		}	
+		newNode.next = head;
+		head = newNode;
 	}
-	
-	//Insert At End
-	public void addLast(int data) {
+	//Insert Element At any Position
+	public void insertAtAnyPos(int data, int pos) {
 		Node newNode = new Node(data);
-		if(head == null) {
+		if(pos == 0) {
+			newNode.next = head;
 			head = newNode;
 			return;
 		}
-		Node tail = head;
-		while(tail.next != null) {
-			tail = tail.next;
+		Node temp = head;
+		for(int i=0; i<pos-1; i++) {
+			temp = temp.next;
 		}
-		
-		tail.next = newNode;
+		newNode.next = temp.next;
+		temp.next = newNode;
 	}
-	
-	//Insert At Any Position
-	public void addAnywhere(int data) {
-		Node newNode = new Node(data);
-		Node tail = head;
-		int count=1;
-		int pos=2;
-		while(count<pos) {
-			count++;
-			tail=tail.next;
-		}
-		newNode.next = tail.next;
-		tail.next = newNode;
-	}
-	
-	//Display
+	//Display Elements
 	public void display() {
 		Node tail = head;
 		while(tail != null) {
-			System.out.print(tail.data+" -> ");
+			System.out.print(tail.data+"->");
 			tail = tail.next;
 		}
 	}
-	
+	//Count Elements in LL
+	void countElement() {
+		Node temp = head;
+		int count=0;
+		while(temp != null) {
+			count++;
+			temp=temp.next;
+		}
+		System.out.println("\nNumber of elements : "+count);
+	}
 	public static void main(String[] args) {
-		SLList l1 = new SLList();
-		l1.addLast(10);
-		l1.addLast(20);
-		l1.addLast(30);
-		l1.addLast(40);
-		l1.addFirst(55);
-		l1.addAnywhere(65);
-		l1.display();
+		SLL2 s1 = new SLL2();	
+		s1.insertAtLast(10);
+		s1.insertAtLast(20);
+		s1.insertAtLast(30);
+		s1.insertAtLast(40);
+		s1.insertAtLast(50);
+		s1.insertAtLast(60);
+		s1.insertAtBegining(56);
+		s1.insertAtAnyPos(68, 6);
+		s1.display();
+		s1.countElement();
 	}
 }
