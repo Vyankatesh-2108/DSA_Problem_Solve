@@ -1,6 +1,4 @@
-//Add Digits
-
-class Solution {
+class AddDigits {
     public int addDigits(int num) {
         int sum = 0;
         if(num==0)
