@@ -1,5 +1,3 @@
-//Top k Frequent elements
-
 class Solution {
     public int[] topKFrequent(int[] nums, int k) {
         Map<Integer,Integer>map=new HashMap<>();
